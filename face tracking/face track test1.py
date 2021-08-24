@@ -11,8 +11,8 @@ tilt=90
 kit.servo[1].angle=pan
 kit.servo[0].angle=tilt
 
-face_cascade=cv2.CascadeClassifier('/home/pi/Desktop/Face Tracking/cascade/face.xml')
-eye_cascade=cv2.CascadeClassifier('/home/pi/Desktop/Face Tracking/cascade/eye.xml')
+face_cascade=cv2.CascadeClassifier('/home/pi/Desktop/Face Tracking/cascade/face.xml')#파일은 로컬에 별도로 저장
+#eye_cascade=cv2.CascadeClassifier('/home/pi/Desktop/Face Tracking/cascade/eye.xml')
 cam=cv2.VideoCapture(-1)
 while True:
     ret, frame = cam.read()
@@ -53,11 +53,11 @@ while True:
         kit.servo[0].angle=tilt
         
         #roi = region of interest
-        roi_gray=gray[y:y+h, x:x+w]
-        roi_color=frame[y:y+h, x:x+w]
-        eyes=eye_cascade.detectMultiScale(roi_gray)
-        for (ex,ey,ew,eh) in eyes:
-            cv2.rectangle(roi_color,(ex,ey),(ex+ew,ey+eh),(255,0,0),2)
+        #roi_gray=gray[y:y+h, x:x+w]
+        #roi_color=frame[y:y+h, x:x+w]
+        #eyes=eye_cascade.detectMultiScale(roi_gray)
+        #for (ex,ey,ew,eh) in eyes:
+            #cv2.rectangle(roi_color,(ex,ey),(ex+ew,ey+eh),(255,0,0),2)
         
         break
     
